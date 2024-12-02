@@ -75,7 +75,7 @@ const dataColOne = [
 
     {
         question: "I’m not a Computer Science major, can I still participate at WEHack?",
-        answer: "Yes! WEHack is truly a beginner friendly hackathon, where all majors are welcome. We are alsonintroducing two new tracks for business and design-related majors: BizTech with Women in Technology & Business and Design Time with UX Club!",
+        answer: "Yes! WEHack is truly a beginner friendly hackathon, where all majors are welcome. We are also introducing two new tracks for business and design-related majors: BizTech with Women in Technology & Business and Design Time with UX Club!",
     },
     
     {

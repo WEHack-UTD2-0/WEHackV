@@ -13,6 +13,11 @@ const countryCodesArray = c.registration.countries.map(
 	(countryObject) => countryObject.code,
 );
 
+const phoneRegex = new RegExp(
+	/^(?:\d{3}-\d{3}-\d{4}|\d{10})$/
+);
+  
+
 export const RegisterFormValidator = z.object({
 	firstName: z.string().min(1, { message: "Required" }),
 	lastName: z.string().min(1, { message: "Required" }),
@@ -71,7 +76,7 @@ export const RegisterFormValidator = z.object({
 	]),
 	phoneNumber: z.string().min(10).max(30, {
 		message: "Phone number must be less than 15 characters",
-	}),
+	}).regex(phoneRegex, 'Invalid Number'),
 	countryOfResidence: z
 		.string()
 		.min(1, "Please select a country of residence."),
@@ -96,7 +101,9 @@ export const RegisterFormValidator = z.object({
 		z.literal("Sophomore", defaultPrettyError),
 		z.literal("Junior", defaultPrettyError),
 		z.literal("Senior", defaultPrettyError),
-		z.literal("Other", defaultPrettyError),
+		z.literal("Master's", defaultPrettyError),
+		z.literal("PhD", defaultPrettyError),
+		z.literal("High School - 18 years old", defaultPrettyError),
 	]),
 	hackathonsAttended: z
 		.number()
@@ -174,9 +181,10 @@ export const RegisterFormValidator = z.object({
 	skills: z.array(
 		z.object({
 			id: z.string(),
-			text: z.string(),
+			text: z.string().max(10, {message: "Skill must be less than 50 characters"})
 		}),
-	), // TODO: impliment a max length
+	).min(1, {message: "Must have at least one skill"})
+	.max(10, {message: "Cannot list more than 10 skills"}),
 	profileIsSearchable: z.boolean(),
 	questionOne: z.string().min(1, { message: "Required" }),
 	questionTwo: z.string().min(1, { message: "Required" }),

@@ -418,6 +418,7 @@ const schools = [
 
 const majors = [
 	"Computer Science",
+	"Software Engineering",
 	"Accounting",
 	"Accounting Technician",
 	"Actuarial Science",
@@ -522,7 +523,6 @@ const majors = [
 	"Small Business Management/Operations",
 	"Social Sciences, General",
 	"Sociology",
-	"Software Engineering",
 	"Statistics",
 	"Supply Chain Management",
 	"Urban Studies/Urban Affairs",
@@ -560,6 +560,7 @@ const dietaryRestrictionOptions = [
 ];
 
 const countries = [
+	{ name: "United States", code: "US" },
 	{ name: "Afghanistan", code: "AF" },
 	{ name: "Albania", code: "AL" },
 	{ name: "Algeria", code: "DZ" },
@@ -742,7 +743,6 @@ const countries = [
 	{ name: "Ukraine", code: "UA" },
 	{ name: "United Arab Emirates", code: "AE" },
 	{ name: "United Kingdom", code: "GB" },
-	{ name: "United States", code: "US" },
 	{ name: "Uruguay", code: "UY" },
 	{ name: "Uzbekistan", code: "UZ" },
 	{ name: "Vanuatu", code: "VU" },
