@@ -948,6 +948,7 @@ const publicRoutes = [
 	/^\/user\//,
 	"/404",
 	"/bugreport",
+	"/api/uploadthing"
 ];
 
 // Generally it is reccomended to put your primary audience's university at the top of this list.
