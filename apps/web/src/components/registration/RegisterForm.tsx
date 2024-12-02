@@ -467,7 +467,7 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 													<SelectValue placeholder="Select a Race" />
 												</SelectTrigger>
 											</FormControl>
-											<SelectContent>
+											<SelectContent className="max-h-72 overflow-y-scroll">
 												<SelectGroup>
 													{c.registration.raceOptions.map(
 														(option) => (
@@ -925,8 +925,14 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 													<SelectItem value="Senior">
 														Senior
 													</SelectItem>
-													<SelectItem value="Other">
-														Other
+													<SelectItem value="Master's">
+														Master's
+													</SelectItem>
+													<SelectItem value="PhD">
+														PhD
+													</SelectItem>
+													<SelectItem value="High School - 18 years old">
+														High School - 18 years old
 													</SelectItem>
 												</SelectGroup>
 											</SelectContent>
@@ -1498,6 +1504,7 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 												placeholder="Type and then press enter to add a skill..."
 												tags={skills}
 												className="sm:min-w-[450px]"
+												maxLength={50}
 												setTags={(newTags) => {
 													setSkills(newTags);
 													form.setValue(
@@ -1511,6 +1518,8 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 											/>
 										</FormControl>
 										<FormDescription className="!mt-0 tracking-wide text-md">
+											<b>Tags can only be less than 50 characters! You can have a max of 10 tags.</b>
+											<br></br>
 											These skills can be listed on your
 											profile and help with the team
 											finding process! Enter anything you

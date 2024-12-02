@@ -69,8 +69,9 @@ export default async function Page() {
 						<p className="pt-5 text-xl font-semibold">
 							Please complete your registration form in one sitting to not lose your progress! 
 							You must click "Submit" at the end for your registration to be officially submitted.
-							Once your form is submitted, you will <b>NOT</b> be able to change your responses, so please answer wisely.
+							<br></br>
 						</p>
+						<h3 className="pt-5 text-lg font-medium tracking-wide underline">Once your form is submitted, you will <b>NOT</b> be able to change your responses, so please answer wisely.</h3>
 						<p className="pb-10 pt-5 text-xl">
 							Psttt... Running into a issue? Please let us know by
 							emailing <b>wehackutd@gmail.com</b>
