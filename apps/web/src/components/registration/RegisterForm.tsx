@@ -171,22 +171,21 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 
 			if (uploadResult) {
 				// Extract the uploaded file information (URL, etc.)
-				// const {serverData: {
-				// 	fileUrl,
-				// 	uploadedBy
+				const {serverData: {
+					fileUrl,
+					uploadedBy
 					
-				// }} = uploadResult[0];
+				}} = uploadResult[0];
 
 				const uploadedFileData = uploadResult[0];
 				console.log(UploadedFileData)
-
-				// console.log(uploadResult[0].serverData.fileUrl);
-				// console.log(uploadResult[0].serverData.uploadedBy);
+				console.log(fileUrl);
+				console.log(uploadResult[0].serverData);
 				
 				// console.log(fileUrl);
 				
 				console.log(resume);
-				// resume = fileUrl;
+				resume = fileUrl;
 
 				// Proceed with form submission by including the uploaded resume URL
 				const res = await zpostSafe({
