@@ -36,7 +36,7 @@ export const removeItem = adminAction
 	.action(async ({ parsedInput: name, ctx: { user, userId } }) => {
 		const pipe = redis.pipeline();
 		pipe.srem(`${process.env.HK_ENV}_config:navitemslist`, encodeURIComponent(name));
-		pipe.del(`config:navitems:${encodeURIComponent(name)}`);
+		pipe.del(`${process.env.HK_ENV}_config:navitems`, encodeURIComponent(name));
 		await pipe.exec();
 		// await new Promise((resolve) => setTimeout(resolve, 1500));
 		revalidatePath(navAdminPage);

@@ -61,7 +61,7 @@ import { NodeNextRequest } from "next/dist/server/base-http/node";
 import { Sonsie_One } from "next/font/google";
 import { generateClientDropzoneAccept } from "uploadthing/client";
 import { generatePermittedFileTypes } from "uploadthing/client";
-import type { FileRouter } from "uploadthing/types";
+import { UploadedFileData, type FileRouter } from "uploadthing/types";
 
 interface RegisterFormProps {
 	defaultEmail: string;
@@ -70,7 +70,7 @@ interface RegisterFormProps {
 export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 	const [resumeFile, setResumeFile] = useState<File | null>(null);
 
-	const { startUpload, routeConfig } = useUploadThing("pdfUploader"); // Specify your endpoint
+	const { startUpload, routeConfig } = useUploadThing("pdfUploaderPrivate"); // Specify your endpoint
 
 	const { isLoaded, userId } = useAuth();
 	const router = useRouter();
@@ -167,12 +167,21 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 		if (resumeFile) {
 			// const { startUpload, routeConfig } = useUploadThing("pdfUploader"); // Specify your endpoint
 			const uploadResult = await startUpload([resumeFile]); // Pass the resumeFile as an array
-			
+			console.log("results", uploadResult);
 
 			if (uploadResult) {
 				// Extract the uploaded file information (URL, etc.)
-				const uploadedFileData = uploadResult[0];
-				console.log(resume);
+				const {serverData: {
+					fileUrl,
+					uploadedBy
+					
+				}} = uploadResult[0];
+
+				// const uploadedFileData = uploadResult[0];
+				// console.log(UploadedFileData)
+				// console.log(fileUrl);
+				// console.log(uploadResult[0].serverData);
+				resume = fileUrl;
 
 				// Proceed with form submission by including the uploaded resume URL
 				const res = await zpostSafe({
