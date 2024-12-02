@@ -179,8 +179,8 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 
 				// const uploadedFileData = uploadResult[0];
 				// console.log(UploadedFileData)
-				console.log(fileUrl);
-				console.log(uploadResult[0].serverData);
+				// console.log(fileUrl);
+				// console.log(uploadResult[0].serverData);
 				resume = fileUrl;
 
 				// Proceed with form submission by including the uploaded resume URL
