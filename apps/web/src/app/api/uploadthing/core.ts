@@ -4,7 +4,7 @@ import { getAuth } from "@clerk/nextjs/server";
 
 const f = createUploadthing();
 
-// const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
+const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
 
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
@@ -17,15 +17,7 @@ export const ourFileRouter = {
 			if (!userId) {
 			  throw new UploadThingError("You need to be logged in to upload files");
 			}
-
-			if (process.env.UPLOADTHING_TOKEN) {
-				console.log("inside private middleware: existing")
-			} else {
-				console.log("inside NOT existing in private middleware")
-			}
-
-			const testing = await req.json();
-			console.log(testing);
+			console.log("token env value is: ", process.env.UPLOADTHING_TOKEN);
 	  
 			return { userId: userId };
 		})
