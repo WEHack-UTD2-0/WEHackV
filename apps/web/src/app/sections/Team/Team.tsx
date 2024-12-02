@@ -43,11 +43,14 @@ function Team() {
  useEffect(() => {
   const handleResize = () => {
     if (window.innerWidth > 1300) {
-        setVisibleCount(8); 
+        setVisibleCount(8);
+        return 8;
     } else if (window.innerWidth > 600) {
       setVisibleCount(6); 
+        return 6;
     } else {
       setVisibleCount(6);
+        return 6;
     }
   };
 
@@ -57,15 +60,27 @@ function Team() {
   return () => window.removeEventListener('resize', handleResize);
  }, []);
 
+ const offset = () => {
+  if (window.innerWidth > 1300) {
+      setVisibleCount(8);
+      return 8;
+  } else if (window.innerWidth > 600) {
+    setVisibleCount(6); 
+      return 6;
+  } else {
+    setVisibleCount(6);
+      return 6;
+  }}
+
  const handleNext = () => {
     startTransition(() => {
-        setStartIndex((prevIndex) => (prevIndex + 1) % teamMembers.length);
+        setStartIndex((prevIndex) => (prevIndex + offset()) % teamMembers.length);
     });
  };
 
  const handlePrev = () => {
     startTransition(() => {
-        setStartIndex((prevIndex) => (prevIndex - 1 + teamMembers.length) % teamMembers.length);
+        setStartIndex((prevIndex) => (prevIndex - offset() + teamMembers.length) % teamMembers.length);
     });
  };
 
@@ -88,7 +103,7 @@ function Team() {
           key={index} 
           className={`polaroid ${isPending && index === 0 ? 'fade-out' : ''}`} // Apply fade-out only to the first item
         >
-          <img src={member.image} alt={member.name} className="polaroid-image" loading="eager" />
+          <img src={member.image} alt={member.name} className="polaroid-image" loading="lazy" />
           <div className="polaroid-text">
             <h3 className="position-text font-bold">{member.name}</h3>
             <p className="role-text">{member.role}</p>
