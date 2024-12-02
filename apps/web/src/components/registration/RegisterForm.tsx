@@ -61,7 +61,7 @@ import { NodeNextRequest } from "next/dist/server/base-http/node";
 import { Sonsie_One } from "next/font/google";
 import { generateClientDropzoneAccept } from "uploadthing/client";
 import { generatePermittedFileTypes } from "uploadthing/client";
-import type { FileRouter } from "uploadthing/types";
+import { UploadedFileData, type FileRouter } from "uploadthing/types";
 
 interface RegisterFormProps {
 	defaultEmail: string;
@@ -172,12 +172,16 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 			if (uploadResult) {
 				// Extract the uploaded file information (URL, etc.)
 				// const {serverData: {
-				// 	fileUrl
+				// 	fileUrl,
+				// 	uploadedBy
 					
 				// }} = uploadResult[0];
 
-				console.log(uploadResult[0].serverData.fileUrl);
-				console.log(uploadResult[0].serverData.uploadedBy);
+				const uploadedFileData = uploadResult[0];
+				console.log(UploadedFileData)
+
+				// console.log(uploadResult[0].serverData.fileUrl);
+				// console.log(uploadResult[0].serverData.uploadedBy);
 				
 				// console.log(fileUrl);
 				
