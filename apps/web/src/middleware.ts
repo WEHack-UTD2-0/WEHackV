@@ -6,6 +6,11 @@ export default authMiddleware({
 	publicRoutes,
 	beforeAuth: (req) => {
 		console.log(`Incoming request: ${req.method} ${req.url}`);
+
+		if (req.nextUrl.pathname === "/api/uploadthing") {
+			console.log("Excluding /api/uploadthing from authMiddleware");
+			return NextResponse.next();
+		  }
 		if (req.nextUrl.pathname.startsWith("/@")) {
 			return NextResponse.rewrite(
 				new URL(
