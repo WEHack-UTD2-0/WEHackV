@@ -459,6 +459,7 @@ const majors = [
 	"Criminology",
 	"Cyber Security",
 	"Data Management Technology",
+	"Data Science",
 	"Dental Assisting",
 	"Design & Visual Communications, General",
 	"Ecology",
