@@ -134,6 +134,7 @@ export async function POST(req: Request) {
 		});
 	} catch (e) {
 		console.log(e);
+		console.log(user.id);
 		return NextResponse.json({
 			success: false,
 			message: "Error with Websocket.",
