@@ -124,6 +124,9 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 	const [isLoading, setIsLoading] = useState(false);
 	const universityValue = form.watch("university");
 	const bioValue = form.watch("bio");
+	const question1 = form.watch("questionOne");
+	const question2 = form.watch("questionTwo");
+	const question3 = form.watch("questionThree");
 	const countryValue = form.watch("countryOfResidence");
 
 	// useEffect(() => {
@@ -1080,7 +1083,7 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 					</FormGroupWrapper>
 					{/* ADDED SHORT ANSWER QUESTIONS */}
 					<FormGroupWrapper title="Short Answer Questions">
-						<div className="grid grid-cols-1 gap-x-2 gap-y-16 pb-10 md:gap-y-10 md:pb-8">
+						<div className="grid grid-cols-1 gap-x-2 gap-y-16 pb-10 md:gap-y-26 md:pb-20">
 							<FormField
 								control={form.control}
 								name="questionOne"
@@ -1097,6 +1100,18 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 												{...field}
 											/>
 										</FormControl>
+										<FormDescription>
+											<span
+												className={
+													question1.length > 500
+														? "text-[#F03C2D]"
+														: ""
+												}
+											>
+												{question1.length} / 500
+												Characters
+											</span>
+										</FormDescription>
 										<FormMessage />
 									</FormItem>
 								)}
@@ -1119,6 +1134,18 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 												{...field}
 											/>
 										</FormControl>
+										<FormDescription>
+											<span
+												className={
+													question2.length > 500
+														? "text-[#F03C2D]"
+														: ""
+												}
+											>
+												{question2.length} / 500
+												Characters
+											</span>
+										</FormDescription>
 										<FormMessage />
 									</FormItem>
 								)}
@@ -1141,6 +1168,18 @@ export default function RegisterForm({ defaultEmail }: RegisterFormProps) {
 												{...field}
 											/>
 										</FormControl>
+										<FormDescription>
+											<span
+												className={
+													question3.length > 500
+														? "text-[#F03C2D]"
+														: ""
+												}
+											>
+												{question3.length} / 500
+												Characters
+											</span>
+										</FormDescription>
 										<FormMessage />
 									</FormItem>
 								)}
