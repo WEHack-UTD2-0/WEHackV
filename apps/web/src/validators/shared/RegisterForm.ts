@@ -183,8 +183,7 @@ export const RegisterFormValidator = z.object({
 			id: z.string(),
 			text: z.string()
 		}),
-	)
-	.max(10, {message: "Cannot list more than 10 skills"}),
+	),
 	profileIsSearchable: z.boolean(),
 	questionOne: z.string().min(1, { message: "Required" }),
 	questionTwo: z.string().min(1, { message: "Required" }),
