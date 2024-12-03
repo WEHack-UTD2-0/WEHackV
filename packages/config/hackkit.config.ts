@@ -854,7 +854,7 @@ const c = {
 			Overview: "/admin",
 			Users: "/admin/users",
 			Events: "/admin/events",
-			Points: "/admin/points",
+			// Points: "/admin/points",
 			"Hackathon Check-in": "/admin/check-in",
 			Toggles: "/admin/toggles",
 		},
